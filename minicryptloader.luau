@@ -1,13 +1,13 @@
-local _1 = game:GetService("\83\116\97\114\116\101\114\71\117\105")
-local _2 = "https://raw.githubusercontent.com/NexivoidOfficial/robloxscripts/refs/heads/main/mch13.lua"
+local StarterGui = game:GetService("StarterGui")
+local url = "https://raw.githubusercontent.com/NexivoidOfficial/robloxscripts/refs/heads/main/mch13.lua"
 
-local _s, _e = pcall(function()
-	loadstring(game:HttpGet(_2,true))()
+local success, err = pcall(function()
+	loadstring(game:HttpGet(url, true))()
 end)
 
-_1:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110", {
-	["\84\105\116\108\101"] = "MiniCrypt 13.1",
-	["\84\101\120\116"] = _s and "\76\111\97\100\101\100\32\115\117\99\99\101\115\115\102\117\108\108\121\33" or ("\76\111\97\100\32\117\110\115\117\99\99\101\115\115\102\117\108\58\32"..tostring(_e)),
-	["\73\99\111\110"] = _s and "\114\98\120\97\115\115\101\116\105\100\58\47\47\49\48\49\56\52\56\54\53\50\54\51\55\51\53\50" or "\114\98\120\97\115\115\101\116\105\100\58\47\47\49\50\53\57\48\49\56\48\54\48\53\55\54\53\50",
-	["\68\117\114\97\116\105\111\110"] = 5
+StarterGui:SetCore("SendNotification", {
+	Title = "MiniCrypt 13.1",
+	Text = success and "Loaded successfully!" or ("Load unsuccesful: "..tostring(err)),
+  Icon = success and "\114\98\120\97\115\115\101\116\105\100\58\47\47\49\48\49\56\52\56\54\53\50\54\51\55\51\53\50" or "\114\98\120\97\115\115\101\116\105\100\58\47\47\49\50\53\57\48\49\56\48\54\48\53\55\54\53\50",
+	Duration = 5
 })
